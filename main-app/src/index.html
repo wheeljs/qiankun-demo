@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qiankun Demo</title>
+</head>
+<body>
+    <ul>
+        <li><a onclick="push('/admin')">Admin</a></li>
+        <li><a onclick="push('/about')">About US</a></li>
+    </ul>
+    <div id="subapp-container"></div>
+
+    <script>
+        function push(app) {
+            history.pushState(null, app, app);
+        }
+    </script>
+</body>
+</html>
