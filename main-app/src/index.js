@@ -9,7 +9,7 @@ registerMicroApps([
     },
     {
         name: 'admin-app',
-        entry: '//localhost:8080/sub.html',
+        entry: '//localhost:8080',
         container: '#subapp-container',
         activeRule: '/admin',
     }

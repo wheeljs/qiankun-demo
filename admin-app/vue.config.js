@@ -1,22 +1,16 @@
-const name = require('./package.json').name;
+const { name } = require('./package.json')
 
 module.exports = {
-    pages: {
-        main: 'src/main.js',
-        sub: 'src/sub.js'
-    },
     devServer: {
-        hot: true,
         disableHostCheck: true,
         headers: {
-            'Access-Control-Allow-Origin': '*'
+            'Access-Control-Allow-Origin': '*',
         },
     },
-    configureWebpack: {
-        output: {
-            library: `${name}-[name]`,
-            libraryTarget: 'umd',
-            jsonpFunction: `webpackJsonp_${name}`
-        }
+    chainWebpack: config => {
+        config.output
+            .library(`${name}-[name]`)
+            .libraryTarget('umd')
+            .jsonpFunction(`webpackJsonp_${name}`)
     }
-};
+}
