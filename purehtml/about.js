@@ -6,15 +6,15 @@ const render = (props) => {
 ((global) => {
     global['purehtml'] = {
         bootstrap: () => {
-            console.log('purehtml bootstrap');
+            console.log('[purehtml] bootstrap');
             return Promise.resolve();
         },
         mount: (props) => {
-            console.log('purehtml mount');
+            console.log('[purehtml] mount', props);
             return render(props);
         },
         unmount: () => {
-            console.log('purehtml unmount');
+            console.log('[purehtml] unmount');
             return Promise.resolve();
         },
     };

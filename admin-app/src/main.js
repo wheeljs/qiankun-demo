@@ -27,16 +27,16 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap () {
-  console.log('[admin] app bootstrapped')
+  console.log('[admin-app] bootstrap')
 }
 
 export async function mount (props) {
-  console.log('[admin] mount')
+  console.log('[admin-app] mount', props)
   render(props)
 }
 
 export async function unmount () {
-  console.log('[admin] unmount')
+  console.log('[admin-app] unmount')
   if (!app) {
     return
   }
