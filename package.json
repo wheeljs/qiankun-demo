@@ -6,8 +6,8 @@
   "scripts": {
     "install-all": "run-s install:*",
     "start": "run-p start:*",
-    "install:main": "cd main-app && yarn",
-    "start:main": "cd main-app && yarn start",
+    "install:facade": "cd facadev2 && yarn",
+    "start:facade": "cd facadev2 && yarn start",
     "install:admin": "cd admin-app && yarn",
     "start:admin": "cd admin-app && yarn start",
     "install:purehtml": "cd purehtml && yarn",
