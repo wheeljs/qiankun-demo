@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { registerMicroApps, setDefaultMountApp, start } from 'qiankun';
-import { Spin } from 'antd';
+import { registerMicroApps, start } from 'qiankun';
+import { ConfigProvider, Spin } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -27,12 +28,12 @@ registerMicroApps([
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider locale={zhCN}>
+      <App />
+    </ConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-setDefaultMountApp('/about');
 
 start();
 
