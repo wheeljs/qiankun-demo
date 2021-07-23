@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { registerMicroApps, start } from 'qiankun';
 import { ConfigProvider, Spin } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
@@ -29,7 +30,9 @@ registerMicroApps([
 ReactDOM.render(
   <React.StrictMode>
     <ConfigProvider locale={zhCN}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </ConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
