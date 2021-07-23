@@ -5,7 +5,11 @@ import logo from './logo.svg';
 import './App.css';
 
 const { Header, Content } = Layout;
-
+/*
+ * TODOLIST:
+ * 用户信息同步到子应用
+ * 父子应用同样引入ant-design，定制部分是否会互相覆盖
+ */
 function App() {
   return (
     <Router>
@@ -29,22 +33,6 @@ function App() {
         </Content>
       </Layout>
     </Router>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
