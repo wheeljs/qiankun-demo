@@ -9,9 +9,15 @@ Vue.config.productionTip = false
 let router = null
 let app = null
 
+function syncGlobalState (props) {
+  props.onGlobalStateChange(state => {
+    store.commit('setUser', state.user)
+  }, true)
+}
+
 function render (props = {}) {
   const { container } = props
-  router = createRouter({
+  router = createRouter(store, {
     base: window.__POWERED_BY_QIANKUN__ ? '/admin' : '/'
   })
 
@@ -32,6 +38,7 @@ export async function bootstrap () {
 
 export async function mount (props) {
   console.log('[admin-app] mount', props)
+  syncGlobalState(props)
   render(props)
 }
 

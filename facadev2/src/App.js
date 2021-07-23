@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import SubApp from './SubApp';
+import Login from './Login';
 import logo from './logo.svg';
 import './App.css';
 
@@ -31,6 +32,9 @@ function App() {
       <Content>
         <Switch>
           <Route exact path="/">Welcome, Hello, Microapp!</Route>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/:subapp">
             <SubApp/>
           </Route>

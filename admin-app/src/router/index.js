@@ -20,12 +20,24 @@ const routes = [
   }
 ]
 
-export function createRouter (options = {}) {
+export function createRouter (store, options = {}) {
   const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     ...options,
     routes
+  })
+
+  router.beforeEach((_to, _from, next) => {
+    if (!store.state.user) {
+      alert('请先登录！')
+      next(false)
+      // TODO 不太严谨，应该通过globalState 把父应用路由注进来
+      history.pushState(null, '/login', `/login?redirect=${encodeURIComponent(location.pathname)}`)
+      return
+    }
+
+    next()
   })
 
   return router

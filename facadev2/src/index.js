@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { registerMicroApps, start } from 'qiankun';
+import { registerMicroApps, start, initGlobalState } from 'qiankun';
 import { ConfigProvider, Spin } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import './index.css';
+import { GlobalStateProvider } from './globalState';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -25,13 +26,19 @@ registerMicroApps([
     loader,
     activeRule: '/about'
   }
-])
+]);
+
+const actions = initGlobalState({
+  user: null
+});
 
 ReactDOM.render(
   <React.StrictMode>
     <ConfigProvider locale={zhCN}>
       <Router>
-        <App />
+        <GlobalStateProvider.Provider value={actions}>
+          <App />
+        </GlobalStateProvider.Provider>
       </Router>
     </ConfigProvider>
   </React.StrictMode>,
