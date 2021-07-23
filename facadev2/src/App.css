@@ -9,11 +9,19 @@
   pointer-events: none;
 }
 
-.ant-layout .ant-layout-header {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+#root, .ant-layout {
+  height: 100%;
 }
+
+.ant-layout {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.ant-layout > .ant-layout-content {
+  flex-grow: 1;
+}
+
 /*
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
